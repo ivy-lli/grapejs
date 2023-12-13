@@ -36,7 +36,7 @@ body {
   flex-grow: 1;
 }
 
-.panel__right {
+.panel__right, .panel__left {
   flex-basis: 230px;
   position: relative;
   overflow-y: auto;

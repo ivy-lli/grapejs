@@ -30,6 +30,9 @@ const editor = grapesjs.init({
         keyWidth: 'flex-basis',
       }
     }, {
+      id: 'panel-block',
+      el: '.panel__left',
+    }, {
       id: 'panel-switcher',
       el: '.panel__switcher',
       buttons: [
