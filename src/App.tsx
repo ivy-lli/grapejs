@@ -4,13 +4,16 @@ import GjsEditor, {
   ModalProvider,
 } from '@grapesjs/react';
 import type { Editor, EditorConfig } from 'grapesjs';
+import grapesjs from 'grapesjs';
+import grapesjsBlocksFlexbox from 'grapesjs-blocks-flexbox';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { MAIN_BORDER_COLOR } from './components/common';
-import CustomModal from './components/CustomModal';
-import CustomAssetManager from './components/CustomAssetManager';
-import Topbar from './components/Topbar';
-import RightSidebar from './components/RightSidebar';
+import CustomModal from './components/CustomModal.tsx';
+import CustomAssetManager from './components/CustomAssetManager.tsx';
+import Topbar from './components/Topbar.tsx';
+import RightSidebar from './components/RightSidebar.tsx';
 import './style.css';
+import 'grapesjs/dist/css/grapes.min.css';
 
 const theme = createTheme({
   palette: {
@@ -43,23 +46,17 @@ const gjsOptions: EditorConfig = {
 export default function App() {
   const onEditor = (editor: Editor) => {
     console.log('Editor loaded');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).editor = editor;
   };
 
   return (
-    // @ts-ignore
     <ThemeProvider theme={theme}>
       <GjsEditor
         className="gjs-custom-editor text-white bg-slate-900"
-        grapesjs="https://unpkg.com/grapesjs"
-        grapesjsCss="https://unpkg.com/grapesjs/dist/css/grapes.min.css"
+        grapesjs={grapesjs}
         options={gjsOptions}
-        plugins={[
-          {
-            id: 'gjs-blocks-basic',
-            src: 'https://unpkg.com/grapesjs-blocks-basic',
-          },
-        ]}
+        plugins={[grapesjsBlocksFlexbox]}
         onEditor={onEditor}
       >
         <div className={`flex h-full border-t ${MAIN_BORDER_COLOR}`}>
