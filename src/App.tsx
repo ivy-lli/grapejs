@@ -5,7 +5,7 @@ import GjsEditor, {
 } from '@grapesjs/react';
 import type { Editor, EditorConfig } from 'grapesjs';
 import grapesjs from 'grapesjs';
-import grapesjsBlocksFlexbox from 'grapesjs-blocks-flexbox';
+import ivyBlocksFlexbox from './plugins/blocks/flex';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { MAIN_BORDER_COLOR } from './components/common';
 import CustomModal from './components/CustomModal.tsx';
@@ -56,7 +56,7 @@ export default function App() {
         className="gjs-custom-editor text-white bg-slate-900"
         grapesjs={grapesjs}
         options={gjsOptions}
-        plugins={[grapesjsBlocksFlexbox]}
+        plugins={[ivyBlocksFlexbox/*grapesjsBlocksFlexbox*/]}
         onEditor={onEditor}
       >
         <div className={`flex h-full border-t ${MAIN_BORDER_COLOR}`}>

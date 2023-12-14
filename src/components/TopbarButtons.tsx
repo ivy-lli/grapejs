@@ -4,7 +4,6 @@ import {
   mdiArrowULeftTop,
   mdiArrowURightTop,
   mdiBorderRadius,
-  mdiFullscreen,
   mdiXml,
 } from '@mdi/js';
 import Icon from '@mdi/react';
@@ -29,15 +28,15 @@ export default function TopbarButtons({
       id: 'core:component-outline',
       iconPath: mdiBorderRadius,
     },
-    {
-      id: 'core:fullscreen',
-      iconPath: mdiFullscreen,
-      options: { target: '#root' },
-    },
-    {
-      id: 'core:open-code',
-      iconPath: mdiXml,
-    },
+    // {
+    //   id: 'core:fullscreen',
+    //   iconPath: mdiFullscreen,
+    //   options: { target: '#root' },
+    // },
+    // {
+    //   id: 'core:open-code',
+    //   iconPath: mdiXml,
+    // },
     {
       id: 'core:undo',
       iconPath: mdiArrowULeftTop,
@@ -88,6 +87,14 @@ export default function TopbarButtons({
           <Icon path={iconPath} size={1} />
         </button>
       ))}
+      <button type="button" className={cx(BTN_CLS, MAIN_BORDER_COLOR)} onClick={() => {
+        editor.Modal.setTitle('Components JSON')
+          .setContent(JSON.stringify(editor.getComponents(), null, 2))
+          .open()
+          .getContentEl()!.style.whiteSpace = 'pre';
+      }}>
+        <Icon path={mdiXml} size={1} />
+      </button>
     </div>
   );
 }

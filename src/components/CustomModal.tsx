@@ -45,7 +45,7 @@ export default function CustomModal({
               <Icon size={1} path={mdiClose} />
             </div>
           </div>
-          <div className="flex-grow overflow-y-auto">{children}</div>
+          <div className="flex-grow overflow-y-auto" style={{whiteSpace: 'pre', fontSize:'12px'}}>{children}</div>
         </Box>
       </Fade>
     </Modal>
