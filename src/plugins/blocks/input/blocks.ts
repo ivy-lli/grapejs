@@ -68,15 +68,6 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
     select: true,
   };
 
-  const inputStyle = `[data-gjs-type="input"] {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  [data-gjs-type="input"][required] label:after {
-    content: ' *';
-  }`
-
   bm.add('input', {
     ...commonBlockProps,
     activate: true,
@@ -88,9 +79,16 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
     content: {
       type: 'input',
       content: `<label>My label</label>
-        <input type="text"></input>
-        <style>${inputStyle}</style>`,
-      style: { padding: '10px' },
+        <input type="text"></input>`,
+      styles: `[data-gjs-type="input"] {
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+        [data-gjs-type="input"][required] label:after {
+          content: ' *';
+        }`
     }
   });
 
