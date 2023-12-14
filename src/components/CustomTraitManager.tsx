@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { TraitsResultProps } from '@grapesjs/react';
 import TraitPropertyField from './TraitPropertyField';
 
