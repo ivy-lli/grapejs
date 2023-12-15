@@ -8,6 +8,10 @@ const addTraits = (editor: Editor) => {
       defaults: {
         traits: [
           'label',
+          {
+            type: 'data',
+            name: 'value'
+          },
           'placeholder',
           {
             type: 'select',
@@ -23,10 +27,6 @@ const addTraits = (editor: Editor) => {
             type: 'checkbox',
             name: 'required',
           },
-          {
-            type: 'data',
-            name: 'value'
-          }
         ],
         attributes: { label: 'My label', type: 'text', required: false },
       },
