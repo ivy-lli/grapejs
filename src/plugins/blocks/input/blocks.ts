@@ -22,6 +22,10 @@ const addTraits = (editor: Editor) => {
           }, {
             type: 'checkbox',
             name: 'required',
+          },
+          {
+            type: 'data',
+            name: 'value'
           }
         ],
         attributes: { label: 'My label', type: 'text', required: false },
@@ -36,7 +40,7 @@ const addTraits = (editor: Editor) => {
       handleAttrChange() {
         const input = this.getEl()!.children[1];
         Object.entries(this.getAttributes())
-          .filter(([key]) => ['placeholder', 'type', 'required'].includes(key))
+          .filter(([key]) => ['placeholder', 'type', 'required', 'value'].includes(key))
           .map(([key, value]) => input.setAttribute(key, value));
       },
       handleLabelChange() {
